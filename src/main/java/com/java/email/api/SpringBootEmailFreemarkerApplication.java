@@ -15,21 +15,7 @@ import com.java.email.api.dto.MailResponse;
 import com.java.email.api.service.EmailService;
 
 @SpringBootApplication
-@RestController
 public class SpringBootEmailFreemarkerApplication {
-
-	@Autowired
-	private EmailService service;
-
-	@PostMapping("/sendingEmail")
-	public MailResponse sendEmail(@RequestBody MailRequest request) {
-		Map<String, Object> model = new HashMap<>();
-		model.put("Name", request.getName());
-		model.put("location", "Bangalore,India");
-		return service.sendEmail(request, model);
-
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootEmailFreemarkerApplication.class, args);
 	}

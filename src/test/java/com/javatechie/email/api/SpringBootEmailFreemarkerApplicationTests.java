@@ -1,18 +1,33 @@
-/*
 package com.javatechie.email.api;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SpringBootEmailFreemarkerApplicationTests {
-
-	@Test
-	public void contextLoads() {
+/**
+ * Unit test for simple App.
+ */
+public class SpringBootEmailFreemarkerApplicationTests extends TestCase {
+	/**
+	 * Create the test case
+	 *
+	 * @param testName name of the test case
+	 */
+	public SpringBootEmailFreemarkerApplicationTests(String testName) {
+		super(testName);
 	}
 
+	/**
+	 * @return the suite of tests being tested
+	 */
+	public static Test suite() {
+		return new TestSuite(SpringBootEmailFreemarkerApplicationTests.class);
+	}
+
+	/**
+	 * Rigourous Test :-)
+	 */
+	public void testApp() {
+		assertTrue(true);
+	}
 }
-*/

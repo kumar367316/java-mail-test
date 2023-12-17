@@ -18,6 +18,7 @@ public class MailController {
     @Autowired
     private EmailService service;
 
+    
     @PostMapping("/sendingEmail")
     public MailResponse sendEmail(@RequestBody MailRequest request) {
         Map<String, Object> model = new HashMap<>();

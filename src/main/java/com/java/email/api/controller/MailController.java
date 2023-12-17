@@ -26,7 +26,5 @@ public class MailController {
         model.put("location", "Bangalore,India");
         
         return service.sendEmail(request, model);
-
     }
-
 }

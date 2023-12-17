@@ -7,6 +7,8 @@ import java.util.Map;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -23,6 +25,8 @@ import freemarker.template.TemplateException;
 
 @Service
 public class EmailService {
+
+	public static final Logger log = LoggerFactory.getLogger(EmailService.class);
 	
 	@Autowired
 	private JavaMailSender sender;
@@ -55,7 +59,7 @@ public class EmailService {
 		} catch (MessagingException | IOException | TemplateException e) {
 			response.setMessage("Mail Sending failure : "+e.getMessage());
 			response.setStatus(Boolean.FALSE);
-			System.out.println("Error");
+			log.error(e.getMessage());
 		}
 
 		return response;

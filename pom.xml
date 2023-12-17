@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>spring-boot-email-freemarker</name>
-	<description>Trigger an email using spring boot freemarker</description>
+	<description>Trigger an email using spring boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -33,6 +33,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>

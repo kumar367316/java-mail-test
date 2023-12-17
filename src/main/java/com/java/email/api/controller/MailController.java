@@ -18,13 +18,13 @@ public class MailController {
     @Autowired
     private EmailService service;
 
+    
     @PostMapping("/sendingEmail")
     public MailResponse sendEmail(@RequestBody MailRequest request) {
         Map<String, Object> model = new HashMap<>();
         model.put("Name", request.getName());
         model.put("location", "Bangalore,India");
+        
         return service.sendEmail(request, model);
-
     }
-
 }

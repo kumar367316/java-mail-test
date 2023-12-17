@@ -55,6 +55,7 @@ public class EmailService {
 		} catch (MessagingException | IOException | TemplateException e) {
 			response.setMessage("Mail Sending failure : "+e.getMessage());
 			response.setStatus(Boolean.FALSE);
+			System.out.println("Error");
 		}
 
 		return response;

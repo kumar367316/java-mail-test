@@ -38,7 +38,6 @@ public class EmailService {
 		MailResponse response = new MailResponse();
 		MimeMessage message = sender.createMimeMessage();
 		try {
-			// set mediaType
 			MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
 					StandardCharsets.UTF_8.name());
 			// add attachment

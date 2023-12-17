@@ -55,6 +55,7 @@ public class EmailService {
 
 			response.setMessage("mail send to : " + request.getTo());
 			response.setStatus(Boolean.TRUE);
+			log.info("mail sent successfully");
 
 		} catch (MessagingException | IOException | TemplateException e) {
 			response.setMessage("Mail Sending failure : "+e.getMessage());

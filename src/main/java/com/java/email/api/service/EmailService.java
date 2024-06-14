@@ -1,27 +1,23 @@
 package com.java.email.api.service;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
-
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
+import com.java.email.api.dto.MailRequest;
+import com.java.email.api.dto.MailResponse;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
-import com.java.email.api.dto.MailRequest;
-import com.java.email.api.dto.MailResponse;
-
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 @Service
 public class EmailService {
@@ -59,7 +55,7 @@ public class EmailService {
 		} catch (MessagingException | IOException | TemplateException e) {
 			response.setMessage("Mail Sending failure : "+e.getMessage());
 			response.setStatus(Boolean.FALSE);
-			log.error(e.getMessage());
+			log.error("Mail Sending failure ", e.getMessage());
 		}
 
 		return response ;

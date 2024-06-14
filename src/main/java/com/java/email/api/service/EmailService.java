@@ -22,7 +22,7 @@ import java.util.Map;
 @Service
 public class EmailService {
 
-	public static final Logger log = LoggerFactory.getLogger(EmailService.class);
+	private static final Logger log = LoggerFactory.getLogger(EmailService.class);
 	
 	@Autowired
 	private JavaMailSender sender;
@@ -34,6 +34,7 @@ public class EmailService {
 		MailResponse response = new MailResponse();
 		MimeMessage message = sender.createMimeMessage();
 		try {
+			// set mediaType
 			MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
 					StandardCharsets.UTF_8.name());
 			// add attachment
@@ -50,15 +51,14 @@ public class EmailService {
 
 			response.setMessage("mail send to : " + request.getTo());
 			response.setStatus(Boolean.TRUE);
-			log.info("mail sent successfully ");
 
 		} catch (MessagingException | IOException | TemplateException e) {
 			response.setMessage("Mail Sending failure : "+e.getMessage());
 			response.setStatus(Boolean.FALSE);
-			log.error("Mail Sending failure ", e.getMessage());
+			log.info("Mail Sending failure ",e.getMessage());
 		}
 
-		return response ;
+		return response;
 	}
 	
 
